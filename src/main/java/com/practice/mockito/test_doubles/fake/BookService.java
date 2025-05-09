@@ -1,0 +1,22 @@
+package com.practice.mockito.test_doubles.fake;
+
+import java.util.Collection;
+
+public class BookService {
+    private BookRepository bookRepository;
+
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    public void addBook(Book book) {
+        if (book == null) {
+            throw new IllegalArgumentException("Book name cannot be null or empty");
+        }
+        bookRepository.save(book);
+    }
+
+    public int findNumberOfBooks() {
+        return bookRepository.findAll().size();
+    }
+}
