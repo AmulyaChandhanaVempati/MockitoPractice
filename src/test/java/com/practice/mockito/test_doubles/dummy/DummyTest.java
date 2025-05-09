@@ -11,6 +11,8 @@ public class DummyTest {
     @Test
     public void testDummy(){
         BookRepository bookRepository = new BookRepositoryDummy();
+        // Email Service is of no use in this test, but we still need it to satisfy constructor
+        // this dependency is a dummy, just to make this code compile
         EmailService emailService = new EmailServiceDummy();
         BookService bookService = new BookService(bookRepository,emailService);
 
